@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-manrope: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Accent Colors — static, safe to use in Tailwind utilities */
+  --color-accent-blue: #2563EB;
+  --color-accent-teal: #0EA5A4;
+  --color-accent-success: #16A34A;
+  --color-accent-warning: #D97706;
+}
+
+/* ── Theme-sensitive colors as CSS custom properties ─────────── */
+:root {
+  /* Light Theme */
+  --primary-bg: #F5F6F8;
+  --secondary-bg: #FAFAF8;
+  --card-bg: #FFFFFF;
+  --elevated-bg: #FFFFFF;
+  --primary-text: #111827;
+  --secondary-text: #4B5563;
+  --muted-text: #6B7280;
+  --border-primary: #E5E7EB;
+  --border-subtle: #F3F4F6;
+  color-scheme: light;
+}
+
+:root.dark {
+  /* Dark Theme */
+  --primary-bg: #0F1115;
+  --secondary-bg: #151922;
+  --card-bg: #1D2430;
+  --elevated-bg: #273244;
+  --primary-text: #F3F4F6;
+  --secondary-text: #D1D5DB;
+  --muted-text: #9CA3AF;
+  --border-primary: #2B3648;
+  --border-subtle: #243041;
+  color-scheme: dark;
+}
+
+/* ── Theme-aware utility classes ──────────────────────────────── */
+@layer utilities {
+  .bg-bg-primary    { background-color: var(--primary-bg); }
+  .bg-bg-secondary  { background-color: var(--secondary-bg); }
+  .bg-bg-card       { background-color: var(--card-bg); }
+  .bg-bg-elevated   { background-color: var(--elevated-bg); }
+
+  .text-text-primary   { color: var(--primary-text); }
+  .text-text-secondary { color: var(--secondary-text); }
+  .text-text-muted     { color: var(--muted-text); }
+
+  .border-border-primary { border-color: var(--border-primary); }
+  .border-border-subtle  { border-color: var(--border-subtle); }
+
+  /* shadow utilities */
+  .shadow-level-1 { box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05); }
+  .shadow-level-2 { box-shadow: 0 10px 30px -4px rgba(0,0,0,0.08); }
+  .shadow-level-3 { box-shadow: 0 20px 40px -8px rgba(0,0,0,0.12); }
+
+  /* fill for SVG */
+  .fill-text-muted { fill: var(--muted-text); }
+  .fill-text-primary { fill: var(--primary-text); }
+
+  /* font-manrope */
+  .font-manrope { font-family: 'Manrope', sans-serif; }
+}
+
+
+/* Base resets & custom scrollbar */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
+/* Custom Grid Background Pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(128, 128, 128, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.03) 1px, transparent 1px);
+}
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(0.5deg); }
+}
+
+@keyframes packet1 {
+  0% { transform: translate(80px, 100px); opacity: 0; }
+  10% { opacity: 1; }
+  45%, 55% { transform: translate(160px, 160px); opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(240px, 100px); opacity: 0; }
+}
+
+@keyframes packet2 {
+  0% { transform: translate(240px, 100px); opacity: 0; }
+  10% { opacity: 1; }
+  45%, 55% { transform: translate(160px, 160px); opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(160px, 240px); opacity: 0; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-packet-1 {
+  animation: packet1 4s linear infinite;
+}
+
+.animate-packet-2 {
+  animation: packet2 4s linear infinite;
+  animation-delay: 2s;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Lenis smooth scrolling compatibility */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
