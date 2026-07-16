@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Server, Brain, Database, CloudLightning, RefreshCw, Layers, ShieldCheck, Terminal as CliIcon, HelpCircle } from "lucide-react";
+import { Server, Brain, Database, Layers, Terminal as CliIcon } from "lucide-react";
 
 interface NodeData {
   id: string;

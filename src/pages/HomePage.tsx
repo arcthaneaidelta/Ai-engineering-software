@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { InteractiveArchitecture } from "../components/InteractiveArchitecture";
-import { ArrowRight, ChevronDown, Zap, Shield, Layers, Code, Brain, BarChart2, Cloud, Target, CheckCircle, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Zap, Shield, Brain, BarChart2, Cloud, Target, CheckCircle, X } from "lucide-react";
 
 interface HeroSectionProps {
   setCurrentPage: (page: string) => void;
@@ -9,7 +9,7 @@ interface HeroSectionProps {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 const stagger = {
@@ -18,7 +18,7 @@ const stagger = {
 };
 
 // Section reveal animation hook
-const useSectionReveal = (threshold = 0.15) => {
+const useSectionReveal = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
   return { ref, inView };

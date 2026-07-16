@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowUp, GitBranch, ExternalLink, Mail, Shield, BookOpen, Terminal, Cpu } from "lucide-react";
+import { ArrowUp, GitBranch, ExternalLink, Mail, Shield, BookOpen, Cpu } from "lucide-react";
 
 interface FooterProps {
   setCurrentPage: (page: string) => void;

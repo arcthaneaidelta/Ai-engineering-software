@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Send, Cpu, Sparkles, AlertCircle, RefreshCw, BarChart2 } from "lucide-react";
+import React, { useState } from "react";
+import { Send, Cpu, Sparkles, RefreshCw } from "lucide-react";
 
 interface PresetQuery {
   question: string;

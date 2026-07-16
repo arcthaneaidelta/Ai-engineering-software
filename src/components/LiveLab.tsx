@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Terminal as TerminalIcon, Play, RefreshCw, FileCode, CheckCircle, AlertTriangle, Cpu } from "lucide-react";
+import { Terminal as TerminalIcon, Play, RefreshCw, FileCode, CheckCircle, Cpu } from "lucide-react";
 
 export const LiveLab: React.FC = () => {
   const [logs, setLogs] = useState<string[]>([]);

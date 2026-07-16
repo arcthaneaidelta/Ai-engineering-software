@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { LiveLab } from "../components/LiveLab";
-import { Terminal, Layers, Play, CheckCircle } from "lucide-react";
+import { Terminal } from "lucide-react";
 
 export const LabsPage: React.FC = () => {
   const headerRef = useRef(null);

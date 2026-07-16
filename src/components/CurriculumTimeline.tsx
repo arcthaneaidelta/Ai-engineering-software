@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Calendar, Clock, Layers, Star, CheckCircle, ChevronRight, X, Sparkles, BookOpen, AlertCircle } from "lucide-react";
+import { Clock, Layers, CheckCircle, X, Sparkles, BookOpen } from "lucide-react";
 
 interface WeekData {
   week: number;
